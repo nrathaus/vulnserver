@@ -1,0 +1,8 @@
+Debug/
+Release/
+*.bss
+*.bss.*
+*.db
+*.opendb
+.vs/
+Logs/
