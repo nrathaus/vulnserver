@@ -15,104 +15,125 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 */
 
 #include <stdio.h>
+#include <string.h>
+
+#define ESSFUNC_EXPORTS
+#include "essfunc.h"
 
 #define VERSION "1.00"
 
 void EssentialFunc1() {
-	printf ("Called essential function dll version %s\n", VERSION);
+  printf("Called essential function dll version %s\n", VERSION);
 }
 
 void EssentialFunc2() {
-	__asm__("jmp *%esp\n\t"
-		"jmp *%eax\n\t"
-		"pop %eax\n\t"
-		"pop %eax\n\t"
-		"ret");
+  __asm {
+    jmp esp
+    jmp eax
+    pop eax
+    pop eax
+    ret
+  }
 }
 
 void EssentialFunc3() {
-	__asm__("jmp *%esp\n\t"
-		"jmp *%ecx\n\t"
-		"pop %ebx\n\t"
-		"pop %ebx\n\t"
-		"ret");
+  __asm {
+    jmp esp
+    jmp ecx
+    pop ebx
+    pop ebx
+    ret
+  }
 }
 
 void EssentialFunc4() {
-	__asm__("jmp *%esp\n\t"
-		"jmp *%ebx\n\t"
-		"pop %ebp\n\t"
-		"pop %ebp\n\t"
-		"ret");
+  __asm {
+    jmp esp
+    jmp ebx
+    pop ebp
+    pop ebp
+    ret
+  }
 }
 
 void EssentialFunc5() {
-	__asm__("jmp *%esp\n\t"
-		"jmp *%edi\n\t"
-		"pop %ebx\n\t"
-		"pop %ebx\n\t"
-		"ret");
+  __asm {
+    jmp esp
+    jmp edi
+    pop ebx
+    pop ebx
+    ret
+  }
 }
 
 void EssentialFunc6() {
-	__asm__("jmp *%esp\n\t"
-		"jmp *%edx\n\t"
-		"pop %ecx\n\t"
-		"pop %edx\n\t"
-		"ret");
+  __asm {
+    jmp esp
+    jmp edx
+    pop ecx
+    pop edx
+    ret
+  }
 }
 
 void EssentialFunc7() {
-	__asm__("jmp *%esp\n\t"
-		"jmp *%esi\n\t"
-		"pop %ecx\n\t"
-		"pop %eax\n\t"
-		"ret");
+  __asm {
+    jmp esp
+    jmp esi
+    pop ecx
+    pop eax
+    ret
+  }
 }
 
 
 void EssentialFunc8() {
-	__asm__("jmp *%esp\n\t"
-		"jmp *%ebp\n\t"
-		"pop %eax\n\t"
-		"pop %edx\n\t"
-		"ret");
+  __asm {
+    jmp esp
+    jmp ebp
+    pop eax
+    pop edx
+    ret
+  }
 }
 
 
 void EssentialFunc9() {
-	__asm__("jmp *%esp\n\t"
-		"jmp *%esp\n\t"
-		"jmp *-12(%esp)\n\t"
-		"pop %ecx\n\t"
-		"pop %ecx\n\t"
-		"ret");
+  __asm {
+    jmp esp
+    jmp esp
+    sub esp, 12
+    jmp esp
+    pop ecx
+    pop ecx
+    ret
+  }
 }
 
 
 void EssentialFunc10(char *Input) {
-	char Buffer2S[140];
-	strcpy(Buffer2S, Input);
+  char Buffer2S[140];
+  strcpy(Buffer2S, Input);
 }
 
 void EssentialFunc11(char *Input) {
-	char Buffer2S[60];
-	strcpy(Buffer2S, Input);
+  char Buffer2S[60];
+  strcpy(Buffer2S, Input);
 }
 
 
 void EssentialFunc12(char *Status, char *Input) {
-	char Buffer2S[2000];
-	strcpy(Buffer2S, Input);
-	printf("%s", Status);
+  char Buffer2S[2000];
+  strcpy(Buffer2S, Input);
+  printf("%s", Status);
 }
 
 void EssentialFunc13(char *Input) {
-	char Buffer2S[2000];	
-	strcpy(Buffer2S, Input);
+  char Buffer2S[2000];
+  strcpy(Buffer2S, Input);
 }
 
 void EssentialFunc14(char *Input) {
-	char Buffer2S[1000];
-	strcpy(Buffer2S, Input);
+  char Buffer2S[1000];
+  strcpy(Buffer2S, Input);
 }
