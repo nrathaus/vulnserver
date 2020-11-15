@@ -1,4 +1,4 @@
-<!DOCTYPE beSTORM SYSTEM "\\Program Files (x86)\\beSTORM\\beSTORM.dtd">
+<!DOCTYPE beSTORM SYSTEM "C:\\Program Files (x86)\\beSTORM\\beSTORM.dtd">
 <beSTORM Version="1.2">
   <Global>
     <Configuration NetworkClient="1" PortType="tcp" Port="9999"/>
