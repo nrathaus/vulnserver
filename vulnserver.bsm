@@ -18,7 +18,7 @@
               <EV Name="Port" ASCIIValue="9999" Description="Remote Port" Required="1" />
             </S>
             <S Name="Hostname">
-              <EV Name="Hostname" ASCIIValue="&lt;Hostname to Test&gt;" Description="Remote Hostname" Required="1" />
+              <EV Name="Hostname" ASCIIValue="127.0.0.1" Description="Remote Hostname" Required="1" />
             </S>
           </SP>
           <SP Name="Parameters for Welcome Receive (VulnServer)" Library="INTERNAL" Procedure="Receive">
