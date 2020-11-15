@@ -1,8 +1,26 @@
 # Vulnserver
+# Protocol
+Vulnserver protocol is not documented, therefore the BSM created for beSTORM was done by:
+1. Creating a `block` for each of the commands
+2. Adding additional characters to the `<BT>` to have it cover the additional characters that are used as delimiters/breakers:
+    1. DEL (0x7F)
+    2. / (slash)
+    3. . (dot)
+
+# Compiling the software
+The fork now includes Visual Studio adjustments and SLN file, just load into Visual Studio 2017 and newer and you can compile it
+
+# Guide to triggering the vulnerabilities:
+https://github.com/bigb0sss/OSCE/tree/master/vulnserver
+
+
+# Original README below
+
+## Vulnserver
 
 Check my blog at http://thegreycorner.com/ for more information and updates to this software.
 
-## About the software
+### About the software
 
 Vulnserver is a multithreaded Windows based TCP server that listens for client connections on port 9999 (by default) and allows the user to run a number of different commands that are vulnerable to various types of exploitable buffer overflows.
 
@@ -11,12 +29,12 @@ This software is intended mainly as a tool for learning how to find and exploit 
 Though it does make an attempt to mimic a (simple) legitimate server program this software has no functional use beyond that of acting as an exploit target, and this software should not generally be run by anyone who is not using it as a learning tool.
 
 
-## Compiling the software
+### Compiling the software
 
 
 Binaries have been provided in this package, however if you wish to compile the software from the provided source files instructions are included in the file COMPILING.txt.
 
-## Running the software
+### Running the software
 
 To run the software, simply execute vulnserver.exe.  The provided essfunc.dll library must be in a location where it can be found by vulnserver.exe - keeping both files in the same directory will usually work fine.
 
@@ -24,7 +42,7 @@ To start the server listening on the default port of 9999, simply run the execut
 
 Once the software is running, simply connect to it on port 9999 using a command line client like netcat.  Issue a HELP command (case sensitive) to see what functions are supported and go from there....
 
-## Exploiting Vulnserver
+### Exploiting Vulnserver
 
 Detailed instructions on how to exploit this software, or example exploit files have not been included with this package - this is to provide a challenge for those who want it and also a disincentive to cheat by peeking at the answer.  
 
@@ -39,10 +57,10 @@ If you're stuck, you can refer to the following to get an idea of how to proceed
 * [Omlette Egghunter Shellcode](http://thegreycorner.com/2013/10/omlette-egghunter-shellcode.html)
 
 
-## License
+### License
 
 See LICENSE.txt.
 
-## Warning
+### Warning
 
 UNDER NO CIRCUMSTANCES SHOULD THIS SOFTWARE BE RUN ON ANY SYSTEM THAT IS CONNECTED TO AN UNTRUSTED NETWORK OR THAT PERFORMS CRITICAL FUNCTIONS.  THE AUTHOR IS NOT RESPONSIBLE FOR ANY DAMAGES THAT MAY OCCUR FROM USING THIS SOFTWARE IN THIS OR ANY OTHER MANNER.  USE AT YOUR OWN RISK.
