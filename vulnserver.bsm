@@ -21,7 +21,7 @@
               <EV Name="Hostname" ASCIIValue="&lt;Hostname to Test&gt;" Description="Remote Hostname" Required="1" />
             </S>
           </SP>
-          <SP Name="Parameters for Receive (VulnServer)" Library="INTERNAL" Procedure="Receive">
+          <SP Name="Parameters for Welcome Receive (VulnServer)" Library="INTERNAL" Procedure="Receive">
             <S Name="SOCKET">
               <PC Name="Socket" ConditionedName="Parameters for Connect (VulnServer)" Parameter="SOCKET" />
             </S>
