@@ -4,7 +4,7 @@
     <Configuration NetworkClient="1" PortType="tcp" Port="9999"/>
   </Global>
   <GeneratorOptSettings>
-    <BT FactoryDefined="1" FactoryType="Binary" />
+    <BT FactoryDefined="1" FactoryType="Text65535" />
   </GeneratorOptSettings>
   <ModuleSettings>
     <M Name="VulnServer Module">
@@ -19,6 +19,11 @@
             </S>
             <S Name="Hostname">
               <EV Name="Hostname" ASCIIValue="&lt;Hostname to Test&gt;" Description="Remote Hostname" Required="1" />
+            </S>
+          </SP>
+          <SP Name="Parameters for Receive (VulnServer)" Library="INTERNAL" Procedure="Receive">
+            <S Name="SOCKET">
+              <PC Name="Socket" ConditionedName="Parameters for Connect (VulnServer)" Parameter="SOCKET" />
             </S>
           </SP>
           <SP Name="VulnServer Data" Library="INTERNAL" Procedure="SendEx">
