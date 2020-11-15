@@ -4,7 +4,11 @@
     <Configuration NetworkClient="1" PortType="tcp" Port="9999"/>
   </Global>
   <GeneratorOptSettings>
-    <BT FactoryDefined="1" FactoryType="Text65535" />
+    <BT FactoryDefined="1" FactoryType="Text65535">
+      <T Name="DEL" Value="7f" Max="65535"/>
+      <T Name="Dot" ASCIIValue="." Max="65535"/>
+      <T Name="Slash" ASCIIValue="/" Max="65535"/>
+    </BT>
   </GeneratorOptSettings>
   <ModuleSettings>
     <M Name="VulnServer Module">
