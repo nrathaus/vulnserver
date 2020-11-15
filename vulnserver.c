@@ -289,7 +289,7 @@ DWORD WINAPI ConnectionHandler(LPVOID CSocket) {
         memset(LterBuf, 0, DEFAULT_BUFLEN);
         i = 0;
         while (RecvBuf[i]) {
-          if ((byte)RecvBuf[i] > 0x7f) {
+          if ((byte)RecvBuf[i] > 0x7f) { // DEL character
             LterBuf[i] = (byte)RecvBuf[i] - 0x7f;
           }
           else {
