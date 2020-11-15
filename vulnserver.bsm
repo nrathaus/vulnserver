@@ -1,0 +1,79 @@
+<?xml version="1.0" standalone="no" ?>
+<beSTORM Version="1.2">
+    <Global project="vulnserver.bsm" path="C:\beSTORM\vulnserver">
+        <Configuration ModuleName="VulnServer Module" Hostname="127.0.0.1" Port="9999" PortType="tcp" SPS="0" EnforceMonitorState="0" MinionEnabled="0" MinionHost="" MinionPort="6980" MinionPassword="" MinionProcess="" RemoteDebugger="0" ICMPEcho="0" TCPEcho="0" UDPEcho="0" ARPEcho="0" AutoSPS="0" NotificationFlag="0" NetworkClient="1" Interval="1" />
+        <AdvancedConfig ParallelProcesses="1" BufferBlock="1" OverflowOnce="0" ScaledType="Base2+/-2" IncrementOrder="" MonitoredInterval="5000" MonitoredPort="0" MonitorCommandPort="6970" MonitorListeningCommandPort="6971" MonitorExceptionPort="6969" ExceptionPause="10" BatchMode="1" ConnectionFailureTriggerException="0" MaxRetries="10" FuzzConditioned="1" DebugFunctions="0" />
+    </Global>
+    <GeneratorOptSettings>
+        <BT>
+            <BT Name="Repeated A" Max="65536" ASCIIValue="A" />
+            <BT Name="Repeated %n" Max="512" ASCIIValue="%n" />
+            <BT Name="Repeated %25n" Max="256" ASCIIValue="%25n" />
+            <BT Name="Repeated Base64 (A)" Max="16384" Type="Base64" ASCIIValue="A" />
+            <BT Name="BiggerSmaller" Max="32768" ASCIIValue="&lt;&gt;" />
+            <BT Name="Repeated %00" Max="21845" ASCIIValue="%00" />
+            <BT Name="Number Generating DEC" Max="4294967295" Type="DecimalPositive" />
+            <BT Name="Negative Number Generating DEC" Max="2147483648" Type="DecimalNegative" />
+            <BT Name="Number Generating HEX" Max="4294967295" Type="Hex" />
+            <BT Name="Repeated Space" Max="65536" ASCIIValue=" " />
+        </BT>
+    </GeneratorOptSettings>
+    <ModuleSettings>
+        <M Name="VulnServer Module">
+            <P Name="VulnServer Protocol">
+                <SC Name="VulnServer Sequence">
+                    <SP Name="Parameters for Connect (VulnServer)" Library="INTERNAL" Procedure="Connect">
+                        <S Name="Protocol Type">
+                            <EV Name="Protocol Type" ASCIIValue="tcp" Description="Remote Protocol Type" Required="1" />
+                        </S>
+                        <S Name="Port">
+                            <EV Name="Port" ASCIIValue="9999" Description="Remote Port" Required="1" />
+                        </S>
+                        <S Name="Hostname">
+                            <EV Name="Hostname" ASCIIValue="&lt;Hostname to Test&gt;" ASCIIDefault="127.0.0.1" Description="Remote Hostname" Required="1" />
+                        </S>
+                    </SP>
+                    <SP Name="VulnServer Data" Library="INTERNAL" Procedure="SendEx">
+                        <S Name="SOCKET">
+                            <PC Name="Socket" ConditionedName="Parameters for Connect (VulnServer)" Parameter="SOCKET" />
+                        </S>
+                        <SC Name="Data">
+                            <SE Name="Commands Types">
+                                <S Name="Commands">
+                                    <E Name="Commands Name">
+                                        <B Name="Fuzzing" />
+                                        <C Name="HELP" ASCIIValue="HELP" />
+                                        <C Name="STATS" ASCIIValue="STATS" />
+                                        <C Name="RTIME" ASCIIValue="RTIME" />
+                                        <C Name="LTIME" ASCIIValue="LTIME" />
+                                        <C Name="TRUN" ASCIIValue="TRUN" />
+                                        <C Name="GMON" ASCIIValue="GMON" />
+                                        <C Name="GDOG" ASCIIValue="GDOG" />
+                                        <C Name="KSTET" ASCIIValue="KSTET" />
+                                        <C Name="GTER" ASCIIValue="GTER" />
+                                        <C Name="HTER" ASCIIValue="HTER" />
+                                        <C Name="LTER" ASCIIValue="LTER" />
+                                        <C Name="KSTAN" ASCIIValue="KSTAN" />
+                                        <C Name="EXIT" ASCIIValue="EXIT" />
+                                    </E>
+                                    <B Name="Spacer" ASCIIValue=" " />
+                                    <B Name="Command Value" />
+                                </S>
+                            </SE>
+                        </SC>
+                    </SP>
+                    <SP Name="Parameters for Receive (VulnServer)" Library="INTERNAL" Procedure="Receive">
+                        <S Name="SOCKET">
+                            <PC Name="Socket" ConditionedName="Parameters for Connect (VulnServer)" Parameter="SOCKET" />
+                        </S>
+                    </SP>
+                    <SP Name="Parameters for Disconnect (VulnServer)" Library="INTERNAL" Procedure="Disconnect">
+                        <S Name="SOCKET">
+                            <PC Name="Socket" ConditionedName="Parameters for Connect (VulnServer)" Parameter="SOCKET" />
+                        </S>
+                    </SP>
+                </SC>
+            </P>
+        </M>
+    </ModuleSettings>
+</beSTORM>
